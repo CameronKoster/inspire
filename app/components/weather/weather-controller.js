@@ -3,16 +3,40 @@ import WeatherService from "./weather-service.js";
 var weatherService = new WeatherService()
 
 
-export default class WeatherController {
 
+
+
+export default class WeatherController {
 	constructor() {
-		//this will fire off get weather right away
 		this.getWeather()
 	}
+
 	getWeather() {
+		debugger
 		weatherService.getWeather(weather => {
-			console.log(weather);
-			//What can you do with this weather object?
+			let template = ""
+			template += `
+			<div>
+			${weatherService.getWeather(weather)}
+			</div>
+			`
+			document.getElementById("weather").innerHTML = template
 		})
 	}
 }
+
+
+
+// function drawWeather() {
+// 	weatherService.getWeather(callWhenDone)
+
+
+
+
+// }
+
+
+
+
+
+//What can you do with this weather object?

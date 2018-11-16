@@ -2,7 +2,9 @@
 
 
 export default class ImageController {
+  constructor() {
 
+  }
 
 }
 
