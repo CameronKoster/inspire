@@ -12,12 +12,14 @@ export default class WeatherController {
 	}
 
 	getWeather() {
-		debugger
 		weatherService.getWeather(weather => {
 			let template = ""
 			template += `
 			<div>
-			${weatherService.getWeather(weather)}
+			<i>${weather.weather[0].icon} </i> 
+			${weather.main.temp}°
+			${weather.weather[0].description}
+			${weather.name}
 			</div>
 			`
 			document.getElementById("weather").innerHTML = template
@@ -27,16 +29,6 @@ export default class WeatherController {
 
 
 
-// function drawWeather() {
-// 	weatherService.getWeather(callWhenDone)
 
 
 
-
-// }
-
-
-
-
-
-//What can you do with this weather object?

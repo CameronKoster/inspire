@@ -3,6 +3,7 @@ const url2 = 'http://api.openweathermap.org/data/2.5/weather?q=boise&&APPID=bd82
 const apiUrl = url + encodeURIComponent(url2);
 
 
+// @ts-ignore
 const weatherApi = axios.create({
 	baseURL: apiUrl,
 	timeout: 3000
@@ -14,22 +15,28 @@ function handleError() {
 	throw new Error("Weather is currently unavailable")
 }
 
-export default class WeatherService {
-	getWeather(callWhenDone) {
-		weatherApi()
-			.then(res => {
-				weather = res.data.main;
-				callWhenDone(res.data.main);
-			})
-			.catch(handleError)
-	}
-}
-
-
-
 // HEY FUN FACT 
 // Have you ever wanted to know the temperature measured in kelvin? That is what this data returns!
 // res.data.temp is the temperature in Kelvin
 // You should probably convert the temperature data to either F or C
+export default class WeatherService {
+	getWeather(callWhenDone) {
+		weatherApi.get('')
+			.then(res => {
+				weather = res.data;
+				callWhenDone(weather);
+			})
+			.catch(handleError)
+	}
+
+
+
+
+}
+
+
+
+
+
 
 
