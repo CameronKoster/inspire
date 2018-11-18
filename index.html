@@ -18,8 +18,22 @@
 	</div>
 
 	<div id="todo">
-		<form onsubmit=""></form>
+		<div id="todoList">Nothing on todo list
+			<input type="checkbox" class="todoListStyling">
+			<input type="checkbox" class="todoListStyling">
+			<input type="checkbox" class="todoListStyling">
+		</div>
 	</div>
+
+
+
+	<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+		<input type="submit">
+		<input type="text" name="input">
+	</form>
+
+
+
 
 
 

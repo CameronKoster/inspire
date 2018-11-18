@@ -18,7 +18,6 @@ export default class TodoService {
 				drawCallback(todoList)
 			}))
 	}
-
 	//POST
 	addTodo(todo, callb) {
 		todoApi.post('', todo)
