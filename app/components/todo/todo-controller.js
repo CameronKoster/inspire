@@ -6,20 +6,22 @@ var todoService = new TodoService
 
 // Use this getTodos function as your callback for all other edits
 function getTodos() {
-	//FYI DONT EDIT ME :)
 	todoService.getTodos(draw)
-}
+} 	//FYI DONT EDIT ME :)
 
-function draw(todos) {
-	//WHAT IS MY PURPOSE?
-	//BUILD YOUR TODO TEMPLATE HERE
-	var template = ''
-	//DONT FORGET TO LOOP
+function draw(todoList) {
+	let template = ""
+	todoList.forEach(todo => //NEED TO START WORKING HERE
+		console.log(todo)
+
+
+	)
 }
 
 
 export default class TodoController {
 	constructor() {
+		todoService.getTodos(draw)
 		// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 	}
 	// You will need four methods

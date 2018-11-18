@@ -5,7 +5,7 @@ import TodoController from "./components/todo/todo-controller.js"
 
 
 
-// HEY WHERE ARE ALL OF YOUR CONTROLLERS??
+
 class app {
   constructor() {
     this.controllers = {

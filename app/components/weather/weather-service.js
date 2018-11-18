@@ -10,7 +10,6 @@ const weatherApi = axios.create({
 });
 
 let weather = {};
-
 function handleError() {
 	throw new Error("Weather is currently unavailable")
 }
@@ -20,18 +19,15 @@ function handleError() {
 // res.data.temp is the temperature in Kelvin
 // You should probably convert the temperature data to either F or C
 export default class WeatherService {
-	getWeather(callWhenDone) {
+	getWeather(callback) {
 		weatherApi.get('')
 			.then(res => {
 				weather = res.data;
-				callWhenDone(weather);
+
+				callback(weather)
 			})
 			.catch(handleError)
 	}
-
-
-
-
 }
 
 

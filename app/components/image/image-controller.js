@@ -4,33 +4,33 @@ import ImageService from "./image-service.js";
 let imageService = new ImageService;
 
 
-let template = "";
 
 export default class ImageController {
   constructor() {
     this.getImage()
   }
 
-
-
   getImage() {
-    console.log("invoked getimage in controller")
-    imageService.getImage(drawImage)  // API -> Service getImage -> drawFunction in controller, but not invoked ->
-    // Place uninvoked drawFunction in param of Service getImage  ->
-    // invoke drawImage known as callback in service.getimage
+    imageService.getImage(image => {
 
-
-
-
-    document.getElementById("body").innerHTML = template
+      drawImage(image)
+    }
+    )
   }
-
 }
 
 
 function drawImage(image) {
-  console.log(image)
+  let template = ""
+  template = `
+    url(${image.url})
+  `
+  document.getElementById("body").style.backgroundImage = template
 }
 
+
+  // API -> Service getImage -> drawFunction in controller, but not invoked ->
+    // Place uninvoked drawFunction in param of Service getImage  ->
+    // invoke drawImage known as callback in service.getimage
 
 
