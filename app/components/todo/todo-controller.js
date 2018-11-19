@@ -13,10 +13,12 @@ function getTodos() {
 
 
 function draw(todoList) {
+	console.log(todoList)
 	let template = ""
 	todoList.forEach(todo => {
+		//create a template for each todo now
 		template += `
-	
+	<input onclick="" type="checkbox" class="todoListStyling">
 		`
 	})
 	console.log(template)
@@ -27,32 +29,29 @@ function draw(todoList) {
 
 
 
-
 export default class TodoController {
 	constructor() {
 		todoService.getTodos(draw)
-		draw()
-		// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 	}
-	// You will need four methods
-	// getTodos should request your api/todos and give an array of todos to your callback fn
-	// addTodo takes in a todo and posts it to the server
-	// toggleTodoStatus takes in a todo marks its status as completed and puts it to the server
-	// removeTodo takes in a todoId and sends a delete request to the server
-	// **** HINT: Everytime you make a change to any todo don't forget to get the todo list again
-
 
 	addTodoFromForm(e) {
-		e.preventDefault() // <-- hey this time its a freebie don't forget this
-		// TAKE THE INFORMATION FORM THE FORM
+		e.preventDefault()
 		var form = e.target
 		var todo = {
-
-			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			completed: form.completed,
+			id: form.id,
+			description: form.description,
+			user: form.user,
+			v: form.v
 		}
+		// TAKE THE INFORMATION FORM THE FORM
+		// DONT FORGET TO BUILD YOUR TODO OBJECT
+
+
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
+
 		//YOU SHOULDN'T NEED TO CHANGE THIS
 		todoService.addTodo(todo, getTodos)
 		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
@@ -71,5 +70,11 @@ export default class TodoController {
 	}
 
 
+	// You will need four methods
+	// getTodos should request your api/todos and give an array of todos to your callback fn
+	// addTodo takes in a todo and posts it to the server
+	// toggleTodoStatus takes in a todo marks its status as completed and puts it to the server
+	// removeTodo takes in a todoId and sends a delete request to the server
+	// **** HINT: Everytime you make a change to any todo don't forget to get the todo list again
 
 }

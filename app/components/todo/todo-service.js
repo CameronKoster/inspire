@@ -1,3 +1,5 @@
+import Todo from "../todo/models/todo-model.js"
+
 const todoApi = axios.create({
 	baseURL: 'https://bcw-sandbox.herokuapp.com/api/cameronkoster/todos/',
 	timeout: 3000
@@ -6,23 +8,25 @@ const todoApi = axios.create({
 
 
 let todoList = []
-
 let addedTodo = {};
 
+
 export default class TodoService {
+	//GET
+	//STEP 2
 	getTodos(drawCallback) {
-		console.log("Getting the Todo List")
 		todoApi.get('')
-			.then((res => {
+			.then(res => {
 				todoList = res.data.data
 				drawCallback(todoList)
-			}))
+			})
 	}
+
 	//POST
-	addTodo(todo, callb) {
+	addTodo(todo, callback) {
 		todoApi.post('', todo)
-			.then(res => { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
-				callb()
+			.then(res => {
+				callback()
 			})
 	}
 

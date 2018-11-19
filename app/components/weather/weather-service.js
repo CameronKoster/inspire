@@ -23,7 +23,6 @@ export default class WeatherService {
 		weatherApi.get('')
 			.then(res => {
 				weather = res.data;
-
 				callback(weather)
 			})
 			.catch(handleError)
