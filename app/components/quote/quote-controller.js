@@ -10,7 +10,6 @@ export default class QuoteController {
 
 	getQuote() {
 		qs.getQuote(function (quote) {
-			console.log('What is the quote', quote)
 		})
 	}
 }

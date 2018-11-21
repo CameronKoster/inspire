@@ -5,9 +5,7 @@ const todoApi = axios.create({
 	timeout: 3000
 });
 
-
-
-let todoList = []
+let todoList = [];
 let addedTodo = {};
 
 
@@ -17,6 +15,7 @@ export default class TodoService {
 	getTodos(drawCallback) {
 		todoApi.get('')
 			.then(res => {
+				console.log(res.data.data)
 				todoList = res.data.data
 				drawCallback(todoList)
 			})
@@ -24,6 +23,7 @@ export default class TodoService {
 
 	//POST
 	addTodo(todo, callback) {
+		debugger
 		todoApi.post('', todo)
 			.then(res => {
 				callback()

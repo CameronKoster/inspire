@@ -10,19 +10,27 @@
 
 <body id="body">
 
-
 	<div id="weather">
 	</div>
 
 	<div id="quote">
 	</div>
 
-	<div id="todo">
-		<div id="todoList">
-			<input onclick="" type="checkbox" class="todoListStyling">
-			<input onclick="" type="checkbox" class="todoListStyling">
-			<input onclick="" type="checkbox" class="todoListStyling">
-		</div>
+
+
+
+
+
+
+	<div id="todo-component">
+
+		<div class="todos" id="todos"></div>
+
+		<form onsubmit="addTodoFromForm(e)">
+			<input type="text" name="newTodo" placeholder="Add Todo">
+			<button type="submit">Submit</button>
+		</form>
+
 	</div>
 
 
@@ -32,12 +40,13 @@
 
 
 
-	<!--Why is the path for this what it is?-->
-	<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
-		<!---->
-		<input type="submit">
-		<input type="text" name="input" placeholder="Add To-do">
-	</form>
+
+
+
+
+
+
+
 
 
 

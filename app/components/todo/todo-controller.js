@@ -16,13 +16,14 @@ function draw(todoList) {
 	console.log(todoList)
 	let template = ""
 	todoList.forEach(todo => {
-		//create a template for each todo now
 		template += `
-	<input onclick="" type="checkbox" class="todoListStyling">
+	<div class="todo">
+	${todo._id} - ${todo.description}
+	<button onclick="removeTodo('${todo._id}')">Remove</button>
+	</div>
 		`
 	})
-	console.log(template)
-	document.getElementById("todoList").innerHTML = template
+	document.getElementById("todos").innerHTML = template
 }
 
 
@@ -34,6 +35,10 @@ export default class TodoController {
 		todoService.getTodos(draw)
 	}
 
+
+
+
+
 	addTodoFromForm(e) {
 		e.preventDefault()
 		var form = e.target
@@ -43,8 +48,10 @@ export default class TodoController {
 			description: form.description,
 			user: form.user,
 			v: form.v
+
+
 		}
-		// TAKE THE INFORMATION FORM THE FORM
+
 		// DONT FORGET TO BUILD YOUR TODO OBJECT
 
 
@@ -55,7 +62,12 @@ export default class TodoController {
 		//YOU SHOULDN'T NEED TO CHANGE THIS
 		todoService.addTodo(todo, getTodos)
 		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
-	}
+	} //Not working yet. May need to work form.reset() in when all done. 
+
+
+
+
+
 
 	toggleTodoStatus(todoId) {
 		// asks the service to edit the todo status
@@ -64,6 +76,11 @@ export default class TodoController {
 	}
 
 	removeTodo(todoId) {
+
+
+
+
+
 		// ask the service to run the remove todo with this id
 
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
