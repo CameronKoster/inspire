@@ -48,7 +48,11 @@ export default class TodoService {
 			.catch(logError)
 	}
 
-	removeTodo() {
+	removeTodo(todoId) {
+		todoApi.delete(todoId)
+			.then(todo => {
+
+			})
 		// Umm this one is on you to write.... The method is a DELETE
 
 	}
