@@ -9,25 +9,16 @@ const imgApi = axios.create({
 });
 
 
-function handleError() {
-	throw new Error("Image currently unavailable")
-}
-
-
-
 let image = {};
 
 export default class ImageService {
 
 	getImage(callWhenDone) {
-		// ^^^^^^^ How do you call this function?
 		imgApi.get('')
 			.then(res => {
 				image = res.data.images[0]
 				callWhenDone(image)
 			})
-			.catch(handleError)
 	}
-
 }
 

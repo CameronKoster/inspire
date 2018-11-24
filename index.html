@@ -9,12 +9,28 @@
 </head>
 
 <body id="body">
+	<div class="container-fluid">
+		<div class="row">
 
-	<div id="weather">
-	</div>
+			<div class="col6">
+				<div id="weather">
+				</div>
+			</div>
 
-	<div id="quote">
-	</div>
+			<div class="col6">
+				<div id="todo-component">
+
+					<div class="todos" id="todos"></div>
+
+					<form onsubmit="addTodoFromForm(e)">
+						<input type="text" name="todo" placeholder="Add Todo">
+						<button type="submit">Submit</button>
+					</form>
+
+				</div>
+			</div>
+
+		</div>
 
 
 
@@ -22,15 +38,12 @@
 
 
 
-	<div id="todo-component">
+		<footer class="row">
 
-		<div class="todos" id="todos"></div>
+			<div id="quote">
+			</div>
 
-		<form onsubmit="addTodoFromForm(e)">
-			<input type="text" name="newTodo" placeholder="Add Todo">
-			<button type="submit">Submit</button>
-		</form>
-
+		</footer>
 	</div>
 
 

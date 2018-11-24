@@ -9,11 +9,14 @@ const quoteApi = axios.create({
 	timeout: 3000
 });
 
+let quote = {};
 
 export default class QuoteService {
 	getQuote(callWhenDone) {
-		quoteApi().then((res) => {
-			callWhenDone(res.data)
-		})
+		quoteApi.get('')
+			.then((res) => {
+				quote = res.data
+				callWhenDone(res.data)
+			})
 	}
 }

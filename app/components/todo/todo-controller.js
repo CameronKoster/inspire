@@ -13,14 +13,13 @@ function getTodos() {
 
 
 function draw(todoList) {
-	console.log(todoList)
 	let template = ""
 	todoList.forEach(todo => {
 		template += `
-	<div class="todo">
-	${todo._id} - ${todo.description}
-	<button onclick="removeTodo('${todo._id}')">Remove</button>
-	</div>
+		<div>
+		<input onchange="app.controllers.todoController.toggleTodoStatus()" type="checkbox" class="todoListStyling">  //something needs to go in parens
+		<span> ${todo.description}</span>
+		</div>
 		`
 	})
 	document.getElementById("todos").innerHTML = template
@@ -43,14 +42,13 @@ export default class TodoController {
 		e.preventDefault()
 		var form = e.target
 		var todo = {
-			completed: form.completed,
+			completed: false,
 			id: form.id,
-			description: form.description,
+			description: form.description.value,
 			user: form.user,
 			v: form.v
-
-
 		}
+
 
 		// DONT FORGET TO BUILD YOUR TODO OBJECT
 
@@ -76,6 +74,14 @@ export default class TodoController {
 	}
 
 	removeTodo(todoId) {
+		let template = ""
+		template +=
+			`
+			<div class="todo">
+			${todo._id} - ${todo.description}
+			<button onclick="removeTodo('${todo._id}')">Remove</button>
+			</div>
+			`
 
 
 
