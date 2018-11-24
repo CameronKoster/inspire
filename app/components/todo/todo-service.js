@@ -20,16 +20,12 @@ export default class TodoService {
 			})
 	}
 
-	addTodo(todo, callback) {
-		todoApi.post('', todo)
+	addTodo(todoFromForm, callback) {
+		todoApi.post('', todoFromForm)
 			.then(res => {
 				callback()
 			})
 	}
-
-
-
-
 
 	toggleTodoStatus(todoId) {
 		// MAKE SURE WE THINK THIS ONE THROUGH
@@ -42,16 +38,12 @@ export default class TodoService {
 			.then(function (res) {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
 			})
-			.catch(logError)
 	}
 
 	removeTodo(todoId) {
 		todoApi.delete(todoId)
-			.then(todo => {
-
-			})
-		// Umm this one is on you to write.... The method is a DELETE
-
+			.then(this.getTodos)
 	}
-
 }
+
+console.log(todoList)

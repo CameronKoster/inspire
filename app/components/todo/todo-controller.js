@@ -7,55 +7,46 @@ function getTodos() {
 	todoService.getTodos(draw)
 } 	//FYI DONT EDIT ME :)
 
-
-
-
-
-
+//something needs to go into the parens in the input
 function draw(todoList) {
 	let template = ""
 	todoList.forEach(todo => {
 		template += `
 		<div>
-		<input onchange="app.controllers.todoController.toggleTodoStatus()" type="checkbox" class="todoListStyling">  //something needs to go in parens
-		<span> ${todo.description}</span>
+		<input onchange="app.controllers.todoController.toggleTodoStatus()" type="checkbox" class="todoListStyling">  
+		<span>${todo.description}</span>
+		<i class="far fa-times-circle" onclick = "removeTodo('${todoList._id}></i>
 		</div>
 		`
 	})
 	document.getElementById("todos").innerHTML = template
 }
 
-
-
-
-
 export default class TodoController {
 	constructor() {
 		todoService.getTodos(draw)
 	}
 
-
-
-
-
+	//why are we building an object in here? What is the purpose? Why are we using form.? Why are we using an extra drilldown on description?
 	addTodoFromForm(e) {
 		e.preventDefault()
 		var form = e.target
 		var todo = {
-			completed: false,
-			id: form.id,
-			description: form.description.value,
-			user: form.user,
-			v: form.v
+			form: form.message.value,
+			data: {
+				completed: false, // completed: false,
+				_id: form._id,// id: form.id,
+				description: form.todo.value,// description: form.todo.value,
+				user: form.user,// user: form.user,
+				v: form.v// v: form.v
+			}
+			//how come I can't console.log(todo) here?
 		}
-
-
+		draw(todo)
 		// DONT FORGET TO BUILD YOUR TODO OBJECT
-
-
-
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
+
 
 		//YOU SHOULDN'T NEED TO CHANGE THIS
 		todoService.addTodo(todo, getTodos)
@@ -74,17 +65,6 @@ export default class TodoController {
 	}
 
 	removeTodo(todoId) {
-		let template = ""
-		template +=
-			`
-			<div class="todo">
-			${todo._id} - ${todo.description}
-			<button onclick="removeTodo('${todo._id}')">Remove</button>
-			</div>
-			`
-
-
-
 
 
 		// ask the service to run the remove todo with this id

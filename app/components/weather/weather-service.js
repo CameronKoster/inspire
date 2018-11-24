@@ -10,9 +10,7 @@ const weatherApi = axios.create({
 });
 
 let weather = {};
-function handleError() {
-	throw new Error("Weather is currently unavailable")
-}
+let fahrenheit = 0;
 
 // HEY FUN FACT 
 // Have you ever wanted to know the temperature measured in kelvin? That is what this data returns!
@@ -25,7 +23,6 @@ export default class WeatherService {
 				weather = res.data;
 				callback(weather)
 			})
-			.catch(handleError)
 	}
 }
 

@@ -5,6 +5,8 @@
 	<title>Inspire</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	 crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+	 crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -12,39 +14,42 @@
 	<div class="container-fluid">
 		<div class="row">
 
-			<div class="col6">
+			<div class="col-3">
 				<div id="weather">
 				</div>
 			</div>
-
-			<div class="col6">
+			<div class="col-5"></div>
+			<div class="col-4">
 				<div id="todo-component">
 
 					<div class="todos" id="todos"></div>
 
-					<form onsubmit="addTodoFromForm(e)">
-						<input type="text" name="todo" placeholder="Add Todo">
-						<button type="submit">Submit</button>
-					</form>
+					<div>
+						<form onsubmit="app.controllers.todoController.addTodoFromForm(e)">
+							<input type="text" name="todo" placeholder="To-Do Description">
+							<button type="submit">Add</button>
+						</form>
+					</div>
 
 				</div>
 			</div>
 
 		</div>
-
-
-
-
-
-
-
-		<footer class="row">
-
-			<div id="quote">
-			</div>
-
-		</footer>
 	</div>
+
+
+
+
+
+
+	<div class="container-fluid">
+		<div class="row"></div>
+		<div id="quote">
+		</div>
+
+
+	</div>
+
 
 
 

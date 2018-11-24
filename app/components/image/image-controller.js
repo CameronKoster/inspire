@@ -7,17 +7,14 @@ let imageService = new ImageService;
 
 export default class ImageController {
   constructor() {
-    this.getImage()
+    imageService.getImage(drawImage)
   }
 
   getImage() {
-    imageService.getImage(image => {
-
-      drawImage(image)
-    }
-    )
+    imageService.getImage(drawImage)
   }
 }
+
 
 
 function drawImage(image) {

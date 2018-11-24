@@ -9,15 +9,21 @@ const imgApi = axios.create({
 });
 
 
-let image = {};
+let images = [];
 
 export default class ImageService {
-
 	getImage(callWhenDone) {
 		imgApi.get('')
 			.then(res => {
-				image = res.data.images[0]
-				callWhenDone(image)
+				// images = res.data.images[0]
+				// images.forEach(img => {
+				// 	images.push(img)
+				// })
+				for (let i = 0; i < res.data.images.length; i++) {
+					images.push(res.data.images[i])
+				}
+				let randomImage = images[Math.floor(Math.random() * images.length)]
+				callWhenDone(randomImage)
 			})
 	}
 }
