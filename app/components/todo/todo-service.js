@@ -16,6 +16,7 @@ export default class TodoService {
 		todoApi.get('')
 			.then(res => {
 				todoList = res.data.data
+				console.log(todoList)
 				drawCallback(todoList)
 			})
 	}
@@ -40,9 +41,12 @@ export default class TodoService {
 			})
 	}
 
-	removeTodo(todoId) {
+	removeTodo(todoId, getTodos) {
+		console.log(todoId)
 		todoApi.delete(todoId)
-			.then(this.getTodos)
+			.then(res => {
+				getTodos()
+			})
 	}
 }
 

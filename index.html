@@ -18,15 +18,17 @@
 				<div id="weather">
 				</div>
 			</div>
+
 			<div class="col-5"></div>
-			<div class="col-4">
+
+			<div class="col-4 d-flex justify-content-end">
 				<div id="todo-component">
 
 					<div class="todos" id="todos"></div>
 
 					<div>
-						<form onsubmit="app.controllers.todoController.addTodoFromForm(e)">
-							<input type="text" name="todo" placeholder="To-Do Description">
+						<form onsubmit="app.controllers.todoController.addTodoFromForm(event)" class="d-flex justify-content-end">
+							<input type="text" name="todo" placeholder="To-Do Description" class="placeholder">
 							<button type="submit">Add</button>
 						</form>
 					</div>
@@ -34,6 +36,14 @@
 				</div>
 			</div>
 
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-6" id="time">
+
+			</div>
 		</div>
 	</div>
 

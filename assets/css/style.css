@@ -1,0 +1,27 @@
+#quote {
+  position: fixed;
+  bottom: 0px;
+  color: white;
+ text-shadow: 2px 2px black;
+}
+
+.weatherStyling {
+  color: white;
+   text-shadow: 2px 2px black;
+}
+
+.todoListStyling {
+  color: white;
+  display: flex;
+  align-content: flex-end;
+}
+
+.todosStyling {
+  color: white;
+    text-shadow: 1px 1px black;
+}
+
+.iconStyling {
+  color: white;
+  text-shadow: 2px 2px black;
+}
