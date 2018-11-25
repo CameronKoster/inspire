@@ -10,17 +10,23 @@ function getTodos() {
 //something needs to go into the parens in the input
 function draw(todoList) {
 	let template = ""
+	let template2 = ""
 	todoList.forEach(todo => {
 		template += `
 		<div>
-		<div onchange="app.controllers.todoController.toggleTodoStatus()"  class="todoListStyling"></div>  
+		<div onchange="app.controllers.todoController.toggleTodoStatus('${todo._id}')" type="checkbox" class="todoListStyling"></div>  
 		<span class="todosStyling">${todo.description}</span>
 		<i class="far fa-times-circle iconStyling" onclick="app.controllers.todoController.removeTodo('${todo._id}')"></i>
 		</div>
 		`
 	})
+	template2 = `Current To-Do's: ${todoList.length}`
+	console.log(todoList.length)
+	document.getElementById("todoCounter").innerHTML = template2
 	document.getElementById("todos").innerHTML = template
 }
+
+
 
 export default class TodoController {
 	constructor() {
@@ -37,6 +43,11 @@ export default class TodoController {
 
 		todoService.addTodo(todo, getTodos)
 	}
+
+	toggleTodoStatus(todoId) {
+		todoService.toggleTodoStatus(todoId)
+	}
+
 
 	removeTodo(todoId) {
 		console.log(todoId)

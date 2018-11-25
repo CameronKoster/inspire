@@ -28,14 +28,15 @@ export default class TodoService {
 	}
 
 
+
 	toggleTodoStatus(todoId) {
 		//STEP 1: Find the todo by its index **HINT** todoList
-		var todo = {} ///MODIFY THIS LINE
-
+		let todo = todoList.find(todo => todo._id === todoId) ///MODIFY THIS LINE
+		todo.completed = !todo.completed
 		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
 		todoApi.put(todoId, todo)
 			.then(res => {
-
+				this.getTodos()
 			})
 		//DO YOU WANT TO DO ANYTHING WITH THIS?
 	}
@@ -49,4 +50,4 @@ export default class TodoService {
 	}
 }
 
-console.log(todoList)
+

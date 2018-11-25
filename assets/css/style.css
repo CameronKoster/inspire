@@ -1,4 +1,5 @@
 #quote {
+  font-family: 'Black Han Sans', sans-serif;
   position: fixed;
   bottom: 0px;
   color: white;
@@ -6,17 +7,20 @@
 }
 
 .weatherStyling {
+    font-family: 'Black Han Sans', sans-serif;
   color: white;
    text-shadow: 2px 2px black;
 }
 
 .todoListStyling {
+    font-family: 'Black Han Sans', sans-serif;
   color: white;
   display: flex;
   align-content: flex-end;
 }
 
 .todosStyling {
+    font-family: 'Black Han Sans', sans-serif;
   color: white;
     text-shadow: 1px 1px black;
 }
@@ -24,4 +28,30 @@
 .iconStyling {
   color: white;
   text-shadow: 2px 2px black;
+}
+
+#body {
+  background-size: cover;
+}
+
+.todoCounterStyling {
+    font-family: 'Black Han Sans', sans-serif;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+::placeholder {
+   font-family: 'Black Han Sans', sans-serif;
+  color: black;
+  font-size: 13;
+   text-shadow: 1px 1px grey;
+}
+
+
+
+.buttonStyling {
+   font-family: 'Black Han Sans', sans-serif;
+  color: white;
+  font-size: 14;
+  text-shadow: 1px 1px black;
 }
